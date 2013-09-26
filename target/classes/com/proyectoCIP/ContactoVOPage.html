@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+	<head>
+		<title>Proyecto CIP - Programación con Wicket</title>
+	</head>
+	<body>
+		<form wicket:id="formulario">
+			<table border="0">
+				<tr>
+					<td colspan="2" align="center">
+						<input type="submit" wicket:id="btnGuardar" value="Guardar" /> <input type="submit" wicket:id="btnBorrar" value="Borrar" />
+				</tr>
+				<tr>
+					<td>
+						<span wicket:id="lblDireccion"></span>
+					</td>
+					<td>
+						<input type="text" wicket:id="direccion" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span wicket:id="lblTelefono"></span>
+					</td>
+					<td>
+						<input type="text" wicket:id="telefono" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span wicket:id="lblCorreo"></span>
+					</td>
+					<td>
+						<input type="text" wicket:id="correo" />
+					</td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>
