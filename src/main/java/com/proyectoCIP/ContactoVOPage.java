@@ -1,10 +1,16 @@
 package com.proyectoCIP;
 
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
+import org.apache.wicket.ajax.AjaxRequestTarget;
+import org.apache.wicket.ajax.markup.html.form.AjaxButton;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
+import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 public class ContactoVOPage extends WebPage {
@@ -13,34 +19,46 @@ public class ContactoVOPage extends WebPage {
 
 	public ContactoVOPage(final PageParameters parameters) {
 		super(parameters);
-
-		Form formulario = new Form("formulario") {
-	        protected void onSubmit() {
-	            info("Form.onSubmit executed");
+		
+		
+		add(new Label("lblDireccion", "Dirección:"));
+	    add(new Label("lblTelefono", "Teléfono:"));
+	    add(new Label("lblCorreo", "Correo:"));
+		
+	    add(new TextField("direccion"));
+	    add(new TextField("telefono"));
+	    add(new TextField("correo"));
+	    
+	    FeedbackPanel feedbackPanel = new FeedbackPanel("leyenda");
+	    add(feedbackPanel);
+		
+	    Form formulario = new Form("formulario") {
+	    	protected void onSubmit() {
+	            info("sabeloooo");
 	        }
+		};
+	    
+	    AjaxButton btnGuardar = new AjaxButton("btnGuardar") {
+	    	 public void onClick(AjaxRequestTarget target) {
+	    		 target.add(new TextField("direccion"));
+	                // add the components that need to be updated to 
+	                // the target
+	            }
 	    };
-
-	    Button btnGuardar = new Button("btnGuardar") {
-	        public void onSubmit() {
-	            System.out.println("Holaaaaaaaaaaaa");
-	        }
-	    };
+	    
+	    
+	    
+	    
 	    formulario.add(btnGuardar);
 	    
 	    Button btnBorrar = new Button("btnBorrar") {
-	        public void onSubmit() {
+	        public void onClick() {
 	            info("btnBorrar.onSubmit executed");
 	        }
 	    };
 	    formulario.add(btnBorrar);
 	    
-		formulario.add(new Label("lblDireccion", "Dirección:"));
-		formulario.add(new Label("lblTelefono", "Teléfono:"));
-		formulario.add(new Label("lblCorreo", "Correo:"));
-		
-		formulario.add(new TextField("direccion"));
-		formulario.add(new TextField("telefono"));
-		formulario.add(new TextField("correo"));
+	    
 
 	    add(formulario);
 

@@ -8,8 +8,12 @@
 			<table border="0">
 				<tr>
 					<td colspan="2" align="center">
-						<input type="submit" wicket:id="btnGuardar" value="Guardar" /> <input type="submit" wicket:id="btnBorrar" value="Borrar" />
+						<button wicket:id="btnGuardar">Guardar</button> <input type="submit" wicket:id="btnBorrar" value="Borrar" />
+					</td>
 				</tr>
+			</table>
+		</form>
+		<table>
 				<tr>
 					<td>
 						<span wicket:id="lblDireccion"></span>
@@ -34,7 +38,7 @@
 						<input type="text" wicket:id="correo" />
 					</td>
 				</tr>
-			</table>
-		</form>
+		</table>
+		<span wicket:id="leyenda">No sabía</span>
 	</body>
 </html>
